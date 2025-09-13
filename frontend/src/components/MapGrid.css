@@ -1,0 +1,69 @@
+.map-grid {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  overflow: auto;       /* scroll se grid for maior que a tela */
+  max-height: 80vh;     /* mantém dentro da tela */
+}
+
+.map-row {
+  display: flex;
+}
+
+.map-cell {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+  text-align: center;
+  line-height: 18px;
+  position: relative;
+  transition: background-color 0.3s;
+  background-color: #eee; /* cor neutra padrão */
+}
+
+/* Terrenos */
+.map-cell.P { background-color: #b0b0b0; }   /* plano */
+.map-cell.M { background-color: #555; color: white; } /* montanhoso */
+.map-cell.R { background-color: #ddd; }       /* rochoso */
+
+/* Caminho */
+.map-cell.path { background-color: #ff0 !important; }
+
+/* Início e Fim */
+.map-cell.F { background-color: red; color: white; font-weight: bold; }
+.map-cell.I { background-color: green; color: white; font-weight: bold; }
+
+/* Casas K1..K12 */
+.map-cell.K { background-color: gold; font-size: 8px; font-weight: bold; }
+
+/* Hover */
+.map-cell:hover {
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+/* Legenda */
+.legend {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.legend-cell {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.legend-cell.F { background-color: red; }
+.legend-cell.I { background-color: green; }
+.legend-cell.K { background-color: gold; }
+.legend-cell.M { background-color: #555; }
+.legend-cell.P { background-color: #b0b0b0; }
+.legend-cell.R { background-color: #ddd; }
+.legend-cell.path { background-color: #ff0; }
